@@ -4,8 +4,8 @@ export function buildBaseScene() {
     engine.addEntity(D3Enviroment);
     D3Enviroment.addComponent(new GLTFShape("models/D3Enviroment.glb"));
     D3Enviroment.addComponent(new Transform({
-    rotation: Quaternion.Euler(0,-180, 0),
-    position: new Vector3(-800, 0, -656)
+        rotation: Quaternion.Euler(0,-180, 0),
+        position: new Vector3(-800, 0, -656)
     }))
 
 
@@ -13,8 +13,8 @@ export function buildBaseScene() {
     engine.addEntity(D3Ground);
     D3Ground.addComponent(new GLTFShape("models/D3Ground.glb"));
     D3Ground.addComponent(new Transform({
-    rotation: Quaternion.Euler(0,-180, 0),
-    position: new Vector3(-800, 0, -656)
+        rotation: Quaternion.Euler(0,-180, 0),
+        position: new Vector3(-800, 0, -656)
     }))
 
 
@@ -22,7 +22,7 @@ export function buildBaseScene() {
     engine.addEntity(D3Building);
     D3Building.addComponent(new GLTFShape("models/D3Building.glb"));
     D3Building.addComponent(new Transform({
-    rotation: Quaternion.Euler(0,-180, 0),
-    position: new Vector3(-800, 0, -656)
+        rotation: Quaternion.Euler(0,-180, 0),
+        position: new Vector3(-800, 0, -656)
     }))
 }
