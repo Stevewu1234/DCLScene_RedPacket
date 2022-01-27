@@ -1,6 +1,6 @@
 import * as utils from '@dcl/ecs-scene-utils'
-import { getUserData, UserData } from '@decentraland/Identity';
-import { showTigerHeadUI, showWearableGameUI } from './TaskUI';
+import { showTigerHeadUI } from './TaskUI';
+import { playerStatus, finishTigerHeadCollection } from './playerData';
 
 /**
  * Sound is a separated from the coin entity so that you can
@@ -13,35 +13,6 @@ tigerPickupSound.addComponent(
 )
 engine.addEntity(tigerPickupSound)
 tigerPickupSound.setParent(Attachable.AVATAR)
-
-export let playerGameStatus = {
-  "address": "",
-  "positions": [],
-  "collectedTiger": 0,
-  "completed": false
-};
-
-const xPosition = 40; // 1040
-const yPosition = 20;  // 944
-const zPosition = 3; 
-const totalTiger = 10;
-
-const finishGameAmount = 10;
-
-// get user blockchain data
-let userData: UserData
-
-async function fetchUserData() {
-    const data = await getUserData()
-    log('getUserData:', data.displayName)
-    return data
-  }
-  
-async function setUserData() {
-    const data = await getUserData()
-    log('setUserData:', data.displayName)
-    userData = data
-}
 
 
 async function enterScene({ id }: { id: string }) {
@@ -67,55 +38,16 @@ async function enterScene({ id }: { id: string }) {
     log("the game is not started or over");
   }
 
-  
 }
 
-// generate random position
-function generateRandomPosition(
-  xRange: number,
-  yRange: number,
-  zRange: number
-) {
-  let randomPosition = new Vector3(Math.random()*xRange, Math.random()*zRange+1, Math.random()*yRange);
-
-  return randomPosition;
-}
-
-// generate random position array
-function generateRandomPositionArry() {
-  let positionArry = [];
-
-  for(let i = 0; i< totalTiger; i++) {
-      positionArry.push(generateRandomPosition(xPosition, yPosition, zPosition));
-  }
-
-  return positionArry;
-}
-
-// initialize user data
-export async function initializeUesrData() {
-  if (!userData) {
-      await setUserData()
-  }
-  let data = await fetchUserData();
-  let positions = generateRandomPositionArry();
-  log("The player status has been initialized", data.userId, positions);
-
-  playerGameStatus = {
-      "address": data.userId.toString(),
-      "positions": positions,
-      "collectedTiger": 0,
-      "completed": false
-  }
-}
 
 // add collected amount
 function addCollected() {
-  playerGameStatus.collectedTiger++;
+  playerStatus.collectedTiger++;
 
-  if(playerGameStatus.collectedTiger >= finishGameAmount) {
-    playerGameStatus.completed = true;
-    log("you have finished collection of tiger head ", playerGameStatus.collectedTiger);
+  if(finishTigerHeadCollection()) {
+    playerStatus.tigerHeadCollectionGameCompleted = true;
+    log("you have finished collection of tiger head ", playerStatus.collectedTiger);
     showTigerHeadUI();
   }
 }
@@ -146,8 +78,8 @@ export class TigerHead extends Entity {
 
           addCollected();
 
-          if(playerGameStatus.completed) {
-            const id = playerGameStatus.address
+          if(playerStatus.tigerHeadCollectionGameCompleted) {
+            const id = playerStatus.address
             enterScene({id});
           }
         },

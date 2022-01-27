@@ -1,8 +1,7 @@
 import * as utils from '@dcl/ecs-scene-utils'
+import { partyTime, partyEnd, fireworkPostions } from './playerData';
 
 
-let partyTime = new Date('2022-01-26T22:19:00');
-let partyEnd = new Date('2022-01-26T22:21:00');
 
 let partyChecker = new Entity();
 engine.addEntity(partyChecker);
@@ -44,31 +43,31 @@ async function checkTime() {
     fireworks_1.addComponent(new GLTFShape("models/LOGO_Fireworks_0126_ml.glb"));
     fireworks_1.addComponent(new Transform({
         rotation: Quaternion.Euler(0,-90, 0),
-        position: new Vector3(70, 0, 110)
+        position: fireworkPostions[0]
     }))
 
     fireworks_2.addComponent(new GLTFShape("models/LOGO_Fireworks_0126_ecn.glb"));
     fireworks_2.addComponent(new Transform({
         rotation: Quaternion.Euler(0,-90, 0),
-        position: new Vector3(70, 0, 210)
+        position: fireworkPostions[1]
     }))
 
     fireworks_3.addComponent(new GLTFShape("models/LOGO_Fireworks_0126_eth.glb"));
     fireworks_3.addComponent(new Transform({
         rotation: Quaternion.Euler(0,-90, 0),
-        position: new Vector3(110, 20, 110)
+        position: fireworkPostions[2]
     }))
 
     fireworks_4.addComponent(new GLTFShape("models/LOGO_Fireworks_0126_green.glb"));
     fireworks_4.addComponent(new Transform({
         rotation: Quaternion.Euler(0,-90, 0),
-        position: new Vector3(90, 0, 210)
+        position: fireworkPostions[3]
     }))
 
     fireworks_5.addComponent(new GLTFShape("models/LOGO_Fireworks_0126_ml.glb"));
     fireworks_5.addComponent(new Transform({
         rotation: Quaternion.Euler(0,-90, 0),
-        position: new Vector3(110, 0, 110)
+        position: fireworkPostions[4]
     }))
 
     // stop checking for the party starting, it's already started!

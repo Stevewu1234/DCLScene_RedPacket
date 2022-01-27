@@ -2,7 +2,7 @@
 import { buildBaseScene } from './baseScene';
 import { checkStart, checkEnd } from './fireworks';
 import { triggerToPlay } from './tigerPickup';
-import { wearableModel } from './wearableModel';
+import { checkWearable } from './wearable';
 import { metaOperaLiveStreaming } from './liveStream';
 
 // base scene
@@ -16,7 +16,7 @@ checkEnd();
 triggerToPlay();
 
 // wearable NFT check game
-wearableModel();
+checkWearable();
 
 // live streaming screen setting
 metaOperaLiveStreaming();

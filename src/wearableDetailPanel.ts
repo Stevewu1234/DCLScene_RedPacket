@@ -1,4 +1,8 @@
 import { wearableData } from "./wearableData"
+import { showWearableGameUI } from './TaskUI';
+import * as utils from '@dcl/ecs-scene-utils'
+import { playerStatus, checkAllInfoOpened } from './playerData';
+
 
 export class InfoPanel {
   private container: UIContainerRect
@@ -7,8 +11,8 @@ export class InfoPanel {
   private wearableImage_1: UIImage
   private wearableImage_2: UIImage
   private wearableName: UIText
-  private wearableDescription: UIText
-  private wearableRevealTime: UIText
+  private wearableDescription1: UIText
+  private wearableDescription2: UIText
   private wearableDesigner: UIText
   private wearableSupply: UIText
   private sound: Entity = new Entity()
@@ -58,10 +62,12 @@ export class InfoPanel {
       this.container,
       new Texture("images/mainPanel.png") // Default image if nothing is found ...
     )
-    this.wearableImage_1.sourceWidth = 1024
-    this.wearableImage_1.sourceHeight = 1024
+    this.wearableImage_1.sourceWidth = 500
+    this.wearableImage_1.sourceHeight = 500
     this.wearableImage_1.width = 384
     this.wearableImage_1.height = 384
+    this.wearableImage_1.positionX = 0;
+    this.wearableImage_1.positionY = -80;
     this.wearableImage_1.visible = false
 
     // Image_2
@@ -69,10 +75,12 @@ export class InfoPanel {
       this.container,
       new Texture("images/mainPanel.png") // Default image if nothing is found ...
     )
-    this.wearableImage_2.sourceWidth = 1024
-    this.wearableImage_2.sourceHeight = 1024
+    this.wearableImage_2.sourceWidth = 500
+    this.wearableImage_2.sourceHeight = 500
     this.wearableImage_2.width = 384
     this.wearableImage_2.height = 384
+    this.wearableImage_2.positionX = 200;
+    this.wearableImage_2.positionY = -80;
     this.wearableImage_2.visible = false
 
 
@@ -92,34 +100,36 @@ export class InfoPanel {
       this.closeInfoPanel()
     })
 
-    // wearable description
-    this.wearableDescription = new UIText(this.container)
-    this.wearableDescription.adaptWidth = true
-    this.wearableDescription.hAlign = "center"
-    this.wearableDescription.vAlign = "center"
-    this.wearableDescription.positionY = -208
-    this.wearableDescription.fontSize = 18
-    this.wearableDescription.color = Color4.Black()
-    this.wearableDescription.value = "Not Found"
-    this.wearableDescription.visible = false
+    // wearable description 1
+    this.wearableDescription1 = new UIText(this.container)
+    this.wearableDescription1.adaptWidth = true
+    this.wearableDescription1.hAlign = "center"
+    this.wearableDescription1.vAlign = "center"
+    this.wearableDescription1.positionX = -10
+    this.wearableDescription1.positionY = -148
+    this.wearableDescription1.fontSize = 11
+    this.wearableDescription1.color = Color4.Black()
+    this.wearableDescription1.value = "Not Found"
+    this.wearableDescription1.visible = false
 
-    // wearable RevealTime
-    this.wearableRevealTime = new UIText(this.container)
-    this.wearableRevealTime.adaptWidth = true
-    this.wearableRevealTime.hAlign = "center"
-    this.wearableRevealTime.vAlign = "center"
-    this.wearableRevealTime.positionY = -233
-    this.wearableRevealTime.fontSize = 10
-    this.wearableRevealTime.color = Color4.Red()
-    this.wearableRevealTime.value = "Not Found"
-    this.wearableRevealTime.visible = false
+    // wearable description 2
+    this.wearableDescription2 = new UIText(this.container)
+    this.wearableDescription2.adaptWidth = true
+    this.wearableDescription2.hAlign = "center"
+    this.wearableDescription2.vAlign = "center"
+    this.wearableDescription2.positionX = -10
+    this.wearableDescription2.positionY = -168
+    this.wearableDescription2.fontSize = 11
+    this.wearableDescription2.color = Color4.Black()
+    this.wearableDescription2.value = "Not Found"
+    this.wearableDescription2.visible = false
 
     // wearable designer
     this.wearableDesigner = new UIText(this.container)
     this.wearableDesigner.adaptWidth = true
     this.wearableDesigner.hAlign = "center"
     this.wearableDesigner.vAlign = "center"
-    this.wearableDesigner.positionY = -233
+    this.wearableDesigner.positionY = -223
     this.wearableDesigner.fontSize = 10
     this.wearableDesigner.color = Color4.Red()
     this.wearableDesigner.value = "Not Found"
@@ -130,7 +140,7 @@ export class InfoPanel {
     this.wearableSupply.adaptWidth = true
     this.wearableSupply.hAlign = "center"
     this.wearableSupply.vAlign = "center"
-    this.wearableSupply.positionY = -233
+    this.wearableSupply.positionY = -243
     this.wearableSupply.fontSize = 10
     this.wearableSupply.color = Color4.Red()
     this.wearableSupply.value = "Not Found"
@@ -157,9 +167,15 @@ export class InfoPanel {
         this.wearableName.value = wearableData[i].wearableDetails.name
         this.wearableImage_1.source = new Texture(wearableData[i].imageLink.imageLink_1)
         this.wearableImage_2.source = new Texture(wearableData[i].imageLink.imageLink_2)
-        this.wearableDescription.value = wearableData[i].description
-        this.wearableRevealTime.value = wearableData[i].revealTime
+        this.wearableDescription1.value = wearableData[i].description1
+        this.wearableDescription2.value = wearableData[i].description2
         this.wearableDesigner.value = wearableData[i].designer
+        this.wearableSupply.value = wearableData[i].totalSupply
+
+        
+
+        // record once while open
+        wearableData[i].checked = true
       }
     }
 
@@ -167,8 +183,8 @@ export class InfoPanel {
     this.wearableName.visible = true
     this.wearableImage_1.visible = true
     this.wearableImage_2.visible = true
-    this.wearableDescription.visible = true
-    this.wearableRevealTime.visible = true
+    this.wearableDescription1.visible = true
+    this.wearableDescription2.visible = true
     this.wearableDesigner.visible = true
     this.wearableSupply.visible = true
   }
@@ -178,10 +194,43 @@ export class InfoPanel {
     this.wearableName.visible = false
     this.wearableImage_1.visible = false
     this.wearableImage_2.visible = false
-    this.wearableDescription.visible = false
-    this.wearableRevealTime.visible = false
+    this.wearableDescription1.visible = false
+    this.wearableDescription2.visible = false
     this.wearableDesigner.visible = false
     this.wearableSupply.visible = false
     this.sound.getComponent(AudioSource).playOnce()
+
+    if(checkAllInfoOpened()) {
+      showWearableGameUI()
+      enterScene({id: playerStatus.address})
+      log("you have checked all wearable info")
+    }
   }
+
+}
+
+
+async function enterScene({ id }: { id: string }) {
+
+  let response = await utils.sendRequest(
+    "https://us-central1-dcl-poap.cloudfunctions.net/app/wear",
+    "POST",
+  {
+    "content-type": "application/json",
+  },
+  {
+    id,
+  }
+  );
+    log("response", response);
+    const { success, error } = await response;
+  
+  if (success) {
+    log("congratulation, you completed the game");
+  }
+
+  if (error == "Event Not Started") {
+    log("the game is not started or over");
+  }
+
 }
