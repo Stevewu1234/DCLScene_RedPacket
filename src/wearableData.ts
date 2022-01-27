@@ -1,7 +1,7 @@
 export const wearableData = [
     {
         id: 0,
-        modelLink: "models/All For One/AllForOneLowerbody-F.glb",
+        modelLink: "models/All For One/ALLFORONE.glb",
         imageLink: { imageLink_1: "images/AllForOneLowerbody.png", imageLink_2: "images/AllForOneTopHead.png", fontsize: 10 },
         wearableDetails: { name: "FantasticLand 2022 - All For One", fontsize: 18},
         description: "Yin and Yang, Black and White, one wave of the wings and all things are One. & Go west, go east, go anywhere lightly in putter pants, because the Force is with you!",
@@ -11,7 +11,7 @@ export const wearableData = [
     },
     {
         id: 1,
-        modelLink: "models/dR.X/DR.XUpperbody-F.glb",
+        modelLink: "models/dR.X/DR.X.glb",
         imageLink: { imageLink_1: "images/dR.XEyewear.png", imageLink_2: "images/dR.XUpperbody.png", fontsize: 10 },
         wearableDetails: { name: "FantasticLand 2022 - dR.X", fontsize: 18},
         description: "Sleeve Tattoo with Flame Guitar. Do you want to be a rock star? & Bat wings over the eyes, cooler than vampires.",
@@ -21,7 +21,7 @@ export const wearableData = [
     },
     {
         id: 2,
-        modelLink: "models/YAMAN/YamanLowerbody-F.glb",
+        modelLink: "models/YAMAN/YAMAN.glb",
         imageLink: { imageLink_1: "images/YamanHelmet.png", imageLink_2: "images/YamanLowerbody.png", fontsize: 10 },
         wearableDetails: { name: "FantasticLand 2022 - Yaman", fontsize: 18},
         description: "Grrr...Wear a tiger helmet in the Year of Tiger, be as vigorous as a tiger! & Robust, Fast, Powerful.",
@@ -31,7 +31,7 @@ export const wearableData = [
     },
     {
         id: 3,
-        modelLink: "models/Kiko/KikoHelmet.glb",
+        modelLink: "models/Kiko/KIKO.glb",
         imageLink: { imageLink_1: "images/KikoHelmet.png", imageLink_2: "images/KikoLowerbody.png", fontsize: 10 },
         wearableDetails: { name: "FantasticLand 2022 - Kiko", fontsize: 18},
         description1: "upperBody: Rainbow Unicorn is the cutest creature in the Metaverse!",
@@ -42,7 +42,7 @@ export const wearableData = [
     },
     {
         id: 4,
-        modelLink: "models/Nancy/NancyLowerbody.glb",
+        modelLink: "models/Nancy/NANCY.glb",
         imageLink: { imageLink_1: "images/NancyLowerbody.png", imageLink_2: "images/NancyUpperbody.png", fontsize: 10 },
         wearableDetails: { name: "FantasticLand 2022 - Nancy", fontsize: 18},
         description: "Slim top with elegant ink patterns & Chic simple black skirt",
