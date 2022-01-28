@@ -18,7 +18,6 @@ export async function checkWearable() {
     const All_For_One = new WearableNFT(
         new GLTFShape('models/collision_model.glb'),
         new Transform({
-            rotation: Quaternion.Euler(0,-180, 0), 
             position: wearablePositions.allForOne,
         }),
         wearableData[0].id,
@@ -29,7 +28,7 @@ export async function checkWearable() {
     engine.addEntity(All_For_One_model)
     All_For_One_model.addComponent(new GLTFShape(wearableData[0].modelLink))
     All_For_One_model.addComponent(new Transform({
-        rotation: Quaternion.Euler(0,-180, 0), 
+        rotation: Quaternion.Euler(0, 90, 0), 
         position: wearablePositions.allForOne,
     }))
 
@@ -38,7 +37,6 @@ export async function checkWearable() {
     const DR_X = new WearableNFT(
         new GLTFShape('models/collision_model.glb'),
         new Transform({
-            rotation: Quaternion.Euler(0,-180, 0),
             position: wearablePositions.drx,
         }),
         wearableData[1].id,
@@ -49,7 +47,7 @@ export async function checkWearable() {
     engine.addEntity(DR_X_model)
     DR_X_model.addComponent(new GLTFShape(wearableData[1].modelLink))
     DR_X_model.addComponent(new Transform({
-        rotation: Quaternion.Euler(0,-180, 0), 
+        rotation: Quaternion.Euler(0, 90, 0), 
         position: wearablePositions.drx,
     }))
 
@@ -58,7 +56,6 @@ export async function checkWearable() {
     const YAMAN = new WearableNFT(
         new GLTFShape('models/collision_model.glb'),
         new Transform({
-            rotation: Quaternion.Euler(0,-180, 0),
             position: wearablePositions.yaman
         }),
         wearableData[2].id,
@@ -69,7 +66,7 @@ export async function checkWearable() {
     engine.addEntity(YAMAN_model)
     YAMAN_model.addComponent(new GLTFShape(wearableData[2].modelLink))
     YAMAN_model.addComponent(new Transform({
-        rotation: Quaternion.Euler(0,-180, 0), 
+        rotation: Quaternion.Euler(0, 90, 0), 
         position: wearablePositions.yaman,
     }))
 
@@ -78,7 +75,7 @@ export async function checkWearable() {
     const Kiko = new WearableNFT(
         new GLTFShape(wearableData[3].modelLink),
         new Transform({
-            rotation: Quaternion.Euler(0,-180, 0),
+            rotation: Quaternion.Euler(0, 90, 0),
             position: wearablePositions.kiko
         }),
         wearableData[3].id,
@@ -89,7 +86,6 @@ export async function checkWearable() {
     const Nancy = new WearableNFT(
         new GLTFShape('models/collision_model.glb'),
         new Transform({
-            rotation: Quaternion.Euler(0,-180, 0),
             position: wearablePositions.nancy
         }),
         wearableData[4].id,
@@ -100,7 +96,7 @@ export async function checkWearable() {
     engine.addEntity(Nancy_model)
     Nancy_model.addComponent(new GLTFShape(wearableData[4].modelLink))
     Nancy_model.addComponent(new Transform({
-        rotation: Quaternion.Euler(0,-180, 0), 
+        rotation: Quaternion.Euler(0, 90, 0),
         position: wearablePositions.nancy,
     }))
 }

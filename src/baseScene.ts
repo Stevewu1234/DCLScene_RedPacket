@@ -2,7 +2,7 @@ export function buildBaseScene() {
     //一.基础场景
     const D3Enviroment = new Entity();
     engine.addEntity(D3Enviroment);
-    D3Enviroment.addComponent(new GLTFShape("models/D3Enviroment.glb"));
+    D3Enviroment.addComponent(new GLTFShape("models/D3Environment.glb"));
     D3Enviroment.addComponent(new Transform({
         rotation: Quaternion.Euler(0,-180, 0),
         position: new Vector3(-800, 0, -656)

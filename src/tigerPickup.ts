@@ -91,6 +91,9 @@ export async function triggerToPlay() {
     );
   }
 
+  
+
+  /// you can use this coin to test coin position, but please hide it when you play in real game
   const coin = new TigerHead(
     tigerShape,
     new Transform({ position: new Vector3(10, 1, 210)}),
