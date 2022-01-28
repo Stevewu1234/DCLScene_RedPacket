@@ -11,23 +11,23 @@ export const setUpPoapBooth = (payload) => {
 
   // POAP BANNER
 
-  let POAPBanner = new Entity();
-  POAPBanner.addComponent(
-    new Transform({
-      position: new Vector3(6, 0, 8),
-    })
-  );
-  POAPBanner.addComponent(
-    new GLTFShape("src/poap/models/poap/POAP_Banner.glb")
-  );
-  engine.addEntity(POAPBanner);
+  // let POAPBanner = new Entity();
+  // POAPBanner.addComponent(
+  //   new Transform({
+  //     position: new Vector3(6, 0, 8),
+  //   })
+  // );
+  // POAPBanner.addComponent(
+  //   new GLTFShape("src/poap/models/poap/POAP_Banner.glb")
+  // );
+  // engine.addEntity(POAPBanner);
 
-  POAPBanner.addComponent(
-    new OnPointerDown(
-      (e) => {
-        openExternalURL("https://www.poap.xyz/");
-      },
-      { hoverText: "Learn More" }
-    )
-  );
+  // POAPBanner.addComponent(
+  //   new OnPointerDown(
+  //     (e) => {
+  //       openExternalURL("https://www.poap.xyz/");
+  //     },
+  //     { hoverText: "Learn More" }
+  //   )
+  // );
 };

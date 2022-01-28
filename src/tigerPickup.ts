@@ -8,7 +8,7 @@ import {
 } from "./playerData";
 
 // Adding coin models
-const tigerShape = new GLTFShape("models/coin.glb"); // Includes the spinning animation
+const tigerShape = new GLTFShape("models/2022_red_packet.glb"); // Includes the spinning animation
 
 const xPosition = 40; // 1040
 const yPosition = 20; // 944
@@ -64,11 +64,11 @@ function generateRandomPositions() {
 async function initializePositions() {
   initializeUserAddress();
 
-  let positions = generateRandomPositionArry();
+  let positions = generateRandomPositions();
   log(
     "The player status has been initialized",
-    playerStatus.address,
-    positions
+    playerStatus.address
+    // positions
   );
 
   playerStatus.positions = positions;
@@ -90,4 +90,11 @@ export async function triggerToPlay() {
       triggerBoxShape
     );
   }
+
+  const coin = new TigerHead(
+    tigerShape,
+    new Transform({ position: new Vector3(10, 1, 210)}),
+    triggerBoxShape
+  )
+
 }

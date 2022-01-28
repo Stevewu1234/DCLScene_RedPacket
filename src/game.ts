@@ -23,7 +23,7 @@ metaOperaLiveStreaming();
 
 setUpPoapBooth({
   transform: {
-    position: new Vector3(8, 0, 8),
+    position: new Vector3(107.6, 0.86426, 129.76),
     rotation: Quaternion.Euler(0, 0, 0),
   },
   poapServer: "poapapi.dcl.guru",

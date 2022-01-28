@@ -37,6 +37,8 @@ export class WearableNFT extends Entity {
           }
         )
       )
+
+
+      
     }
-  }
-  
+}

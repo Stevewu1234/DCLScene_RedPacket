@@ -71,6 +71,8 @@ export class TigerHead extends Entity {
           // Camera enter
           this.getComponent(Transform).scale.setAll(0)
           tigerPickupSound.getComponent(AudioSource).playOnce()
+
+          log("you have collected the head on positon of", transform)
         },
         onCameraExit: () => {
           // Camera exit
