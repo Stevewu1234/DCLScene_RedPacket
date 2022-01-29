@@ -28,9 +28,9 @@ setUpPoapBooth({
   },
   poapServer: "poapapi.dcl.guru",
   // change to event id
-  eventName: "5498",
+  eventName: "24474",
   // change the name of the poap
-  UIdisplayName: "DG Poap",
+  UIdisplayName: "Cool Poap",
   imageSizeX: 1080,
   imageSizeY: 1080,
 });
