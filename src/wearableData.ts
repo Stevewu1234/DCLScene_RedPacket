@@ -50,7 +50,7 @@ export const wearableData = [
         wearableDetails: { name: "FantasticLand 2022 - Nancy", fontsize: 18},
         description1: "Slim top with elegant ink patterns",
         description2: "Chic simple black skirt",
-        designer: "Designed & Created by Avatar Network",
+        designer: "Designed by VICTOR LI. Created by Avatar Network",
         totalSupply: "total supply for the activity: 960",
         checked: false
     },
