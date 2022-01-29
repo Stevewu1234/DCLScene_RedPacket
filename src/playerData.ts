@@ -47,11 +47,11 @@ export function checkAllInfoOpened() {
 
 
 export const wearablePositions = {
-    allForOne: new Vector3(106.02, 0.88165, 137.99),
-    drx: new Vector3(106.19, 0.88165, 150.82),
-    kiko: new Vector3(104.95, 0.88165, 141.22),
-    nancy: new Vector3(105.04, 0.88165, 147.71),
-    yaman: new Vector3(104.62, 0.88165, 144.42)
+    allForOne: new Vector3(130.23, 0.88165, 150.82),
+    drx: new Vector3(130.05, 0.88165, 137.99),
+    kiko: new Vector3(131.29, 0.88165, 147.68),
+    nancy: new Vector3(131.2, 0.88165, 141.09),
+    yaman: new Vector3(131.62, 0.88165, 144.38)
 }
 
 

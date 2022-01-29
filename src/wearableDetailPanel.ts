@@ -163,7 +163,6 @@ export class InfoPanel {
   public openInfoPanel(id: number): void {
     for (let i = 0; i < wearableData.length; i++) {
       if (id == wearableData[i].id) {
-        log(wearableData[i].imageLink)
         this.wearableName.value = wearableData[i].wearableDetails.name
         this.wearableImage_1.source = new Texture(wearableData[i].imageLink.imageLink_1)
         this.wearableImage_2.source = new Texture(wearableData[i].imageLink.imageLink_2)
